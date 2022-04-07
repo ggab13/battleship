@@ -19,8 +19,8 @@ function createPlayer(name) {
     enemyGameboard.receiveAttack(x, y);
   }
   function aiAttack(enemyGameboard) {
-    const x = Math.floor(Math.random() * 9) + 1;
-    const y = Math.floor(Math.random() * 9) + 1;
+    const x = Math.floor(Math.random() * 10);
+    const y = Math.floor(Math.random() * 10);
     /*  for (let index = 0; index < aiCoordinates.length; index++) {
       const element = aiCoordinates[index];
 
@@ -35,7 +35,6 @@ function createPlayer(name) {
         x,
         y,
       });
-      console.log(x, y);
 
       enemyGameboard.receiveAttack(x, y);
     }

@@ -1,6 +1,202 @@
-$primary-color: white;
-$bg: black;
-h1 {
-  color: $primary-color;
-  background-color: $bg;
+
+body {
+  margin: 0 auto;
+  background-color: black;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+
+  .container{
+    border-radius: 13%;
+    border: 5px solid white;
+    height: 600px;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 1em;
+    background:  url("background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: default;
+
+    .start{
+      position: relative;         
+      background-color:white;
+      color: black;
+      font-weight: bold;
+      top: s0px;
+      font-size: 2rem;
+      border: 5px solid rgb(0, 0, 0);
+      border-radius: 25px;
+    }
+   
+    //background-image: url("background.jpg");
+    header{
+      margin: 0 auto;
+    
+      h1{
+        width: auto;
+        margin: 30px 150px;        
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: white;
+        border: 4px solid black;
+        border-radius: 50px;
+        background-color: rgba(16, 140, 255, 0.911);
+        overflow: hidden;
+        
+      }
+    }
+
+    .game {
+      position: relative;
+      width: 100%;    
+      display: flex;      
+      justify-content: center;
+      align-items: center;    
+     
+      .shipCreate-form{
+        margin: 30px;
+        background-color: rgb(165, 226, 233);
+        border: 5px solid black;
+        display: grid;
+        padding: 15px;
+        height: 150px;
+
+        .shipCreate-form__button {
+         
+          justify-content: center;
+          display: block;
+          padding: 5px;
+          margin: 10px 15px;
+          border: 2px solid white;
+          border-radius: 3px;
+          font-weight: bold;
+          color: white;
+          background-color: rgba(16, 140, 255, 0.911);
+         
+        }
+      }
+    
+      
+      .coordinate{
+       // display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        border: 0.5px solid rgb(22, 86, 195);
+        //background-color: purple;
+
+        
+        .undefined{
+          width: 25px;
+          height: 25px;
+          background-color: rgb(99, 148, 238);
+    
+        }
+        .hit {
+          width: 25px;
+          height: 25px;
+          background-color: red;
+        }
+       .miss{
+        width: 25px;
+        height: 25px;
+         background-color: white;
+       }
+      }
+   
+      .ship:hover{
+        background-color: black;
+      }
+    
+      .hit {
+        background-color: red;
+      }
+      
+      .player {
+    
+        display: flex;
+        width: auto;
+        //background-color: green;
+        height: auto;
+        font-size: 0.5em;        
+        margin: 30px;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid black;
+        pointer-events: none;
+
+        .ship{
+          width: 25px;
+          height: 25px;
+          background-color: rgb(79, 77, 77);         
+        }
+       
+      }
+      .ai {  
+        display: none;
+        width: auto;
+        //background-color: yellow;
+        justify-content: center;
+        height: auto;
+        font-size: 0.5em;
+        margin: 30px;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid black;     
+
+        .ship{
+          width: 25px;
+          height: 25px;
+          background-color: rgb(99, 148, 238);      
+         
+        }
+        
+        .hit {
+          background-color: red;
+          pointer-events: none;
+        }
+        .miss {
+          pointer-events: none;
+        }
+      }
+   
+     
+    }
+    footer {
+      border-top: 2px solid white;;
+      background-color: rgb(27, 150, 199);        
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: auto;
+      width: 100%;
+    
+      a{
+        text-decoration: none;
+        color: rgb(211, 211, 211);
+      }
+      .ggab13 {
+    
+        img{
+      
+        content: url("github.png");
+        width: 30px;
+       
+        -webkit-filter: contrast(65%) opacity(0.8) drop-shadow(1px 1px 1px #0d0d1a) brightness(125%);
+       
+        }
+      }
+     
+    }
+    
+    
+    
+    
+    
+  }
+  
+
 }
+
+

@@ -1,4 +1,4 @@
-const Gameboard = require('./gameBoardFactory');
+const Gameboard = require('../factories/gameBoardFactory');
 
 test('Place ship on gameboard', () => {
   const test = Gameboard();
