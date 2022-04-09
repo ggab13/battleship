@@ -30,6 +30,29 @@ body .container .start {
   border-radius: 25px;
 }
 
+body .container .start:hover {
+  color: white;
+  background-color: black;
+  border: 5px solid white;
+}
+
+body .container .restart {
+  display: none;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  top: s0px;
+  font-size: 2rem;
+  border: 5px solid black;
+  border-radius: 25px;
+}
+
+body .container .restart:hover {
+  color: white;
+  background-color: black;
+  border: 5px solid white;
+}
+
 body .container header {
   margin: 0 auto;
 }
@@ -82,6 +105,10 @@ body .container .game .shipCreate-form .shipCreate-form__button {
   font-weight: bold;
   color: white;
   background-color: rgba(16, 140, 255, 0.911);
+}
+
+body .container .game .shipCreate-form .shipCreate-form__button:hover {
+  color: #bebcbc;
 }
 
 body .container .game .coordinate {

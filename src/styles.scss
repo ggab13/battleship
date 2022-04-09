@@ -28,7 +28,26 @@ body {
       border: 5px solid rgb(0, 0, 0);
       border-radius: 25px;
     }
-   
+    .start:hover{
+      color: white;
+      background-color: black;
+      border: 5px solid white;
+    }
+    .restart{      
+      display: none;      
+      background-color:white;
+      color: black;
+      font-weight: bold;
+      top: s0px;
+      font-size: 2rem;
+      border: 5px solid rgb(0, 0, 0);
+      border-radius: 25px;
+    }
+    .restart:hover{
+      color: white;
+      background-color: black;
+      border: 5px solid white;
+    }
     //background-image: url("background.jpg");
     header{
       margin: 0 auto;
@@ -72,8 +91,10 @@ body {
           border-radius: 3px;
           font-weight: bold;
           color: white;
-          background-color: rgba(16, 140, 255, 0.911);
-         
+          background-color: rgba(16, 140, 255, 0.911);         
+        }
+        .shipCreate-form__button:hover{
+          color: rgb(190, 188, 188);
         }
       }
     

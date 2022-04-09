@@ -20,30 +20,47 @@ const AI = createPlayer('Odin - AI');
 const Gabor = createPlayer('Gabor');
 let shipAlignment;
 
+const restart = createComponent('button', 'restart', container);
+restart.innerHTML = 'Restart Game';
+
 // const coordinates = document.querySelectorAll('.coordinate');
 
-function startGame() {
-  AI.playerPlaceShips(2, 1, 2, 'horizontal');
-  AI.playerPlaceShips(2, 2, 4, 'horizontal');
-  AI.playerPlaceShips(3, 3, 4, 'horizontal');
-  AI.playerPlaceShips(4, 5, 4, 'horizontal');
-  AI.playerPlaceShips(5, 6, 4, 'horizontal');
-  createBoard(Gabor, player);
-  createBoard(AI, ai);
-  main.style.display = 'flex';
-  placeShipForm();
-}
-
-function DOMallShipSunk() {
-  console.log(Gabor.gameboard.allShipsSunk());
-  if (Gabor.gameboard.allShipsSunk() === true) {
-    h1.innerHTML = 'AI WON';
-  }
-  if (AI.gameboard.allShipsSunk() === true) {
-    h1.innerHTML = 'Gabor WON';
-  }
-}
 startGame();
+
+const shipCreateForm = document.querySelector('.shipCreate-form');
+const placeShipDom = document.querySelector('.shipCreate-form__button');
+const x = document.querySelector('.shipCreate-form__x');
+const y = document.querySelector('.shipCreate-form__y');
+const length = document.querySelector('.shipCreate-form__length');
+let inputY;
+let inputX;
+let inputLength;
+
+x.addEventListener('change', doX);
+y.addEventListener('change', doY);
+length.addEventListener('change', doLength);
+
+start.addEventListener('click', () => {
+  startBattle();
+});
+restart.addEventListener('click', () => {
+  location.reload();
+  return false;
+});
+placeShipDom.addEventListener('click', (e) => {
+  e.preventDefault();
+  shipAlignment = document.querySelector('input[name="align"]:checked').value;
+  if (inputLength < 6) {
+    Gabor.playerPlaceShips(parseInt(inputLength), parseInt(inputX), parseInt(inputY), shipAlignment);
+    x.value = '';
+    y.value = '';
+    length.value = '';
+    player.innerHTML = '';
+    createBoard(Gabor, player);
+  } else {
+    console.log('Too long');
+  }
+});
 
 function placeShipForm() {
   const form = createComponent('form', 'shipCreate-form', main);
@@ -83,35 +100,35 @@ function placeShipForm() {
   placeButton.innerHTML = 'Place Ship';
 }
 
-const shipCreateForm = document.querySelector('.shipCreate-form');
-const placeShipDom = document.querySelector('.shipCreate-form__button');
-const x = document.querySelector('.shipCreate-form__x');
-const y = document.querySelector('.shipCreate-form__y');
-const length = document.querySelector('.shipCreate-form__length');
-let inputY;
-let inputX;
-let inputLength;
+function startGame() {
+  AI.playerPlaceShips(2, 0, 1, 'horizontal');
+  AI.playerPlaceShips(2, 2, 2, 'vertical');
+  AI.playerPlaceShips(3, 4, 4, 'horizontal');
+  AI.playerPlaceShips(4, 2, 9, 'vertical');
+  AI.playerPlaceShips(5, 9, 5, 'horizontal');
+  createBoard(Gabor, player);
+  createBoard(AI, ai);
+  main.style.display = 'flex';
+  placeShipForm();
+}
 
-function doX() {
-  inputX = this.value;
+function DOMallShipSunk() {
+  if (Gabor.gameboard.allShipsSunk() === true) {
+    h1.innerHTML = 'AI WON';
+    restart.style.display = 'inline';
+    ai.style.pointerEvents = 'none';
+  }
+  if (AI.gameboard.allShipsSunk() === true) {
+    h1.innerHTML = 'Gabor WON';
+    restart.style.display = 'inline';
+    ai.style.pointerEvents = 'none';
+  }
 }
-function doY() {
-  inputY = this.value;
-}
-function doLength() {
-  inputLength = this.value;
-}
-x.addEventListener('change', doX);
-y.addEventListener('change', doY);
-length.addEventListener('change', doLength);
-
 function startBattle() {
   start.style.display = 'none';
   ai.style.display = 'flex';
   shipCreateForm.style.display = 'none';
-  letTheGameBegin();
-}
-function letTheGameBegin() {
+
   document.body.addEventListener('click', (e) => {
   // if (e.target.parentElement.classList.contains('ai')) {
     const element = e.target;
@@ -138,20 +155,13 @@ function letTheGameBegin() {
   // }
   });
 }
-start.addEventListener('click', () => {
-  startBattle();
-});
-placeShipDom.addEventListener('click', (e) => {
-  e.preventDefault();
-  shipAlignment = document.querySelector('input[name="align"]:checked').value;
-  if (inputLength < 6) {
-    Gabor.playerPlaceShips(parseInt(inputLength), parseInt(inputX), parseInt(inputY), shipAlignment);
-    x.value = '';
-    y.value = '';
-    length.value = '';
-    player.innerHTML = '';
-    createBoard(Gabor, player);
-  } else {
-    console.log('Too long');
-  }
-});
+
+function doX() {
+  inputX = this.value;
+}
+function doY() {
+  inputY = this.value;
+}
+function doLength() {
+  inputLength = this.value;
+}
