@@ -36,7 +36,7 @@ git clone https://github.com/ggab13/battleship.git
  ```sh
 npm install
 ```
-4. -
+4. - Navigate to dist folder
  ```sh
  cd battleship  
  ```
